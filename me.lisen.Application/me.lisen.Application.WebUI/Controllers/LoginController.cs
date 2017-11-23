@@ -26,5 +26,7 @@ namespace me.lisen.Application.WebUI.Controllers
             MemoryStream memoryStream = me.lisen.Application.Code.VerifyCode.CreateImage(out vCode);
             return File(memoryStream.ToArray(),@"image/png");
         }
+
+        
     }
 }
