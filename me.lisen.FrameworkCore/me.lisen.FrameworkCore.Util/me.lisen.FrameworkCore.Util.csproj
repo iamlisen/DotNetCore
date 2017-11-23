@@ -84,6 +84,9 @@
   <ItemGroup>
     <Compile Include="config\ConfigManager.cs" />
     <Compile Include="Const.cs" />
+    <Compile Include="Email\EmailHelper.cs" />
+    <Compile Include="Email\EmailMessageFormat.cs" />
+    <Compile Include="Json.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
