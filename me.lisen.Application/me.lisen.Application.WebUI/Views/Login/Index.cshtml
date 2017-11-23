@@ -99,7 +99,15 @@
 
             //登录验证
             function checkLogin(autologin) {
-               
+                $("#btnlogin").addClass('active').attr('disabled', 'disabled');
+                $("#btnlogin").find('span').hide();
+                var username = $("#username").val();
+                var password = $("#password").val();
+                var verifycode = $("#login_verifycode").val();
+                if (top.$.cookie('username') == '' || top.$.cookie('password') == '' || top.$.cookie('autologin') == '0') {
+                    password = $.md5(password);
+                }
+
             }
 
             //用户名离开事件
