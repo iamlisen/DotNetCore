@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Http;
+using me.lisen.FrameworkCore.Util.SessionHelper;
 
 namespace me.lisen.Application.WebUI
 {
@@ -21,6 +23,11 @@ namespace me.lisen.Application.WebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSingleton<SessionHelper>();
+            string redisConnection = Configuration.GetSection("Redis").Value;
+            services.AddSession();
+            services.AddDistributedRedisCache(option=>option.Configuration=redisConnection);
             services.AddMvc();
             services.AddOptions();
         }
@@ -39,7 +46,7 @@ namespace me.lisen.Application.WebUI
             }
 
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
