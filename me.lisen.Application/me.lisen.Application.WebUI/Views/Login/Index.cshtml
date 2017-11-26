@@ -62,7 +62,7 @@
                 });
             });
 
-            //刷新验证码
+            //获取邮件验证码
             $("#register_getcode_email").click(function () {
                 $("#login_verifycode").attr("src", "/Login/VerifyCode?time=" + Math.random());
             });
@@ -140,6 +140,8 @@
                     }
                 }
             });
+            //微信关闭按钮
+            $("#weixinClose").click(function () { $("#divweixin").css("display", "none"); });
         });
     </script>
 </head>
@@ -234,9 +236,9 @@
         <br>
         <a href="https://www.lisen.me">木子网</a>
     </div>
-    <div class="weixin">
+    <div class="weixin" id="divweixin">
         <div style="margin-bottom: 5px;">
-            扫描二维码，关注微信公众号
+            扫描二维码，关注微信公众号<span style="color:red;margin-left:5px;" id="weixinClose"><img src="~/images/button_pm_close.png" /></span>
         </div>
         <img src="~/images/gongzhonghao.jpg" style="width: 150px;" alt="扫描关注二维码" />
     </div>
