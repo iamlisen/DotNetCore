@@ -101,5 +101,14 @@ namespace me.lisen.Application.Code
             Img.Dispose();
             return ms;
         }
+
+        /// <summary>
+        /// 获取邮件验证码
+        /// </summary>
+        /// <returns></returns>
+        public string CreateEmailVerifyCode()
+        {
+            return GetVerifyCode();
+        }
     }
 }

@@ -25,9 +25,9 @@ namespace me.lisen.Application.WebUI
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<SessionHelper>();
-            string redisConnection = Configuration.GetSection("Redis").Value;
+            //string redisConnection = Configuration.GetSection("Redis").Value;
             services.AddSession();
-            services.AddDistributedRedisCache(option=>option.Configuration=redisConnection);
+            //services.AddDistributedRedisCache(option=>option.Configuration=redisConnection);
             services.AddMvc();
             services.AddOptions();
         }
